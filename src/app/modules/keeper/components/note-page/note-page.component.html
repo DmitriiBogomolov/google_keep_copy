@@ -1,0 +1,17 @@
+
+<app-new-note [defaultLabel]="labelId"></app-new-note>
+
+<div class="noNotes" *ngIf="!getNotesByLabel().length">
+  <mat-icon class="noNotesIco">label_outline</mat-icon>
+  <span class="noNotesText">Нет заметок</span>
+</div>
+
+<h3 class="gridHeader" *ngIf="getNoticedByLabel().length">Закрепленные</h3>
+<div class="noticedGrid" *ngIf="getNoticedByLabel().length">
+  <app-grid-layout (gridChanged)="secondGridChanged($event)" [dragEnabled]='dragEnabled' [notes]='getNoticedByLabel()'></app-grid-layout>
+</div>
+
+<h3 class="gridHeader" *ngIf="getNoticedByLabel().length && getUnnoticedByLabel().length">Другие заметки</h3>
+<div class="unnoticedGrid">
+  <app-grid-layout (gridChanged)="mainGridChanged($event)" [dragEnabled]='dragEnabled' [notes]='getUnnoticedByLabel()'></app-grid-layout>
+</div>

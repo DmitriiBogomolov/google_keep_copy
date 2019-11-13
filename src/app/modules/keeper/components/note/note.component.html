@@ -1,0 +1,51 @@
+
+  <div class="noteItem unselectable" (mousedown)="mouseDown($event)" (mouseup)="mouseUp($event)">
+
+    <div class="cardBackground" [ngStyle]="{background:note.color}"></div>
+
+    <div class="cardImage">
+      <img draggable="false" *ngIf="note.imagePreview" [ngClass]={imageLoading:fileProgress} [src]="note.imagePreview" >
+      <mat-progress-bar *ngIf="fileProgress" mode="query"></mat-progress-bar>
+    </div>
+
+    <button
+      [ngClass]="{activePin:note.pin}"
+      #noticeBtn
+      class="noticeBtn"
+      type="button"
+      mat-raised-button
+      matTooltip="Закрепить"
+      mat-icon-button
+      disableRipple=true
+      (click)="changePin()">
+      <mat-icon class="pinIco" [ngClass]="{'material-icons-outlined':!note.pin}">flag</mat-icon>
+    </button>
+
+    <div class="cardInfo">
+
+      <div *ngIf="isEmpyNote()" class="cardEmptyWrap">
+        <h3 class="cardEmpty">Пустая заметка</h3>
+      </div>
+
+      <h3 class="cardTitle">{{note.title}}</h3>
+      <p class="cardDescripion">{{note.description}}</p>
+
+      <app-note-labels [note]=note [shortMode]='true'></app-note-labels>
+
+    </div>
+
+
+    <div class="cardList" *ngIf="note.showTodo">
+      <div class="todoItem" disableRipple='true' *ngFor="let item of note.todoList; let i = index;" #todoItem>
+            <mat-checkbox class="todoCheckbox" disableRipple='true' (change)="checkItem(item)" [(checked)]="item.checked"></mat-checkbox>
+            <span class="todoItemSpan" [ngClass]={overlined:item.checked}>{{item.value}}</span>
+      </div>
+    </div>
+
+
+    <div class="cardFooter" [ngClass]="{menuActive:menuActiveTrigger}">
+      <app-note-menu [note]='note' [details]='true' (showNote)="openDialog(note)" (setMenu)="setMenuStatus($event)" (fileProgress)="setFileProgress($event)"></app-note-menu>
+    </div>
+
+
+  </div>

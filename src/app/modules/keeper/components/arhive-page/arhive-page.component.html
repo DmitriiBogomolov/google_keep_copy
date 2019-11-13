@@ -1,0 +1,9 @@
+
+<div class="noNotes" *ngIf="!getArhiveNotes().length">
+  <mat-icon class="noNotesIco">label_outline</mat-icon>
+  <span class="noNotesText">Архив пуст</span>
+</div>
+
+<div class="unnoticedGrid">
+  <app-grid-layout [dragEnabled]='false' [notes]='getArhiveNotes()'></app-grid-layout>
+</div>

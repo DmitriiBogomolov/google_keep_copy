@@ -1,0 +1,15 @@
+
+<div class="editNoteWrap" [ngStyle]="{background:note.color}">
+
+<mat-dialog-content>
+  <div class="editNoteBodyWrap">
+    <app-note-edit-body [note]='note' [fileProgress]='fileProgress'></app-note-edit-body>
+  </div>
+</mat-dialog-content>
+
+  <div class="footer">
+    <app-note-menu [note]='note' [details]='false' (fileProgress)="setFileProgress($event)"></app-note-menu>
+    <a class="closeBtn" (click)="closeClick()">Закрыть</a>
+  </div>
+
+</div>

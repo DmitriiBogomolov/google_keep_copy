@@ -1,0 +1,83 @@
+
+
+.newNote{
+  box-sizing: border-box;
+  margin: 30px auto;
+  padding: 15px;
+  padding-bottom: 0;
+
+  width:600px;
+  border: 1px solid #dedfe3;
+  border-radius: 10px;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.13);
+
+
+}
+
+
+.newNoteCap input{
+  background: none;
+  border: none;
+  outline: none;
+  font-size:14px;
+}
+.newNoteCap .description{
+  font-size:16px;
+
+  /*
+  color:#84868b;
+  */
+  color:#202124;
+  margin-bottom:0px;
+  font-weight: 600px;
+}
+
+.newNoteCap .description{
+  margin-bottom:10px;
+  margin-left:10px;
+}
+
+
+.title::-webkit-input-placeholder {color:#7a8085; font-weight: 400;}
+.title::-moz-placeholder          {color:#80868b; font-weight: 400;}/* Firefox 19+ */
+.title:-moz-placeholder           {color:#80868b; font-weight: 400;}/* Firefox 18- */
+.title:-ms-input-placeholder      {color:#80868b; font-weight: 400;}
+
+.description::-webkit-input-placeholder {color:#858b90;}
+.description::-moz-placeholder          {color:#858b90;}/* Firefox 19+ */
+.description:-moz-placeholder           {color:#858b90;}/* Firefox 18- */
+.description:-ms-input-placeholder      {color:#858b90;}
+
+
+
+
+
+
+
+
+.footer{
+  display:flex;
+}
+
+.footer .closeBtn{
+  font-size:13px;
+  font-weight: 500;
+  color:#212121;
+  margin-left:auto;
+  width:105px;
+  height: 35px;
+  cursor: pointer;
+
+  line-height: 35px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.footer .closeBtn:hover{
+  background-color: #fafafa;
+}
+
+.footer .closeBtn:active{
+  background-color: #ececed;
+}

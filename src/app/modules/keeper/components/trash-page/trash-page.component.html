@@ -1,0 +1,18 @@
+
+<div class="trashPage">
+
+  <div class="noNotes" *ngIf="!getTrashNotes().length">
+    <mat-icon class="noNotesIco">delete_outline</mat-icon>
+    <span class="noNotesText">Корзина пуста</span>
+  </div>
+
+  <div class="gridHeader" *ngIf="getTrashNotes().length">
+    <h3 class="gridTitle">Заметки удаляются из корзины через 7 дней.</h3>
+    <span class="clearRef" (click)="clearConfirmDialogue()">Очистить корзину</span>
+  </div>
+
+  <div class="unnoticedGrid">
+    <app-grid-layout [dragEnabled]='false' [notes]='getTrashNotes()'></app-grid-layout>
+  </div>
+
+</div>

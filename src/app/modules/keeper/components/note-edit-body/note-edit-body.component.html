@@ -1,0 +1,40 @@
+
+<div class="editBodyWrapper">
+
+  <div class="image-preview" *ngIf="note.imagePreview">
+    <img draggable="false"  [ngClass]={imageLoading:fileProgress} class="noteImage" [src]="note.imagePreview" >
+    <div class="deleteImgBtn" (click)="deleteImage()"><mat-icon class="deleteIco">delete</mat-icon></div>
+    <mat-progress-bar *ngIf="fileProgress" mode="query"></mat-progress-bar>
+  </div>
+
+  <button
+    class="noticeBtn"
+    type="button"
+    mat-raised-button
+    matTooltip="Закрепить"
+    mat-icon-button
+    disableRipple=true
+    (click)="changePin()">
+    <mat-icon class="pinIco" [ngClass]="{'material-icons-outlined':!note.pin}">flag</mat-icon>
+  </button>
+
+  <div class="header">
+    <input type="text" class="title" placeholder="Введите заголовок" [(ngModel)]="note.title">
+  </div>
+
+  <div class="body">
+    <textarea
+              placeholder="Заметка..."
+              [(ngModel)]="note.description"
+              class="description"
+
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="1">
+    </textarea>
+    <app-note-labels [note]=note [shortMode]='false'></app-note-labels>
+  </div>
+
+  <app-todo-list *ngIf="note.showTodo" [note]='note'></app-todo-list>
+
+</div>

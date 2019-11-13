@@ -1,0 +1,154 @@
+.grid-item {
+  float: left;
+  width: 240px;
+  min-height: 100px;
+}
+
+.noteItem{
+  transition: 0.3s;
+  width: 240px;
+  min-height: 100px;
+  border:1px solid rgba(255,255,255,0);
+  border-radius: 10px;
+}
+
+.cardBackground{
+  position: absolute;
+  width:100%;
+  height: 100%;
+  border-radius: 10px;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  opacity:1;
+  background: white;
+  border: 1px solid #dedfe3;
+  border-radius: 10px;
+}
+
+.colorized{
+  background:yellow;
+  border: none;
+}
+
+.noticeBtn{
+  opacity: 0;
+  background: rgba(255,255,255,0.5);
+  color:#606060;
+  position:absolute;
+  right: 5px;
+  top: 3px;
+  box-shadow: none;
+  transition: 0.2s;
+}
+
+.activePin{
+  opacity: 1;
+}
+
+.noteItem:hover .noticeBtn{
+  opacity: 1;
+  transition: 0.2s;
+}
+
+.noticeBtn:hover{
+  color:#1a1a1a;
+  transition: 0.2s;
+}
+
+.cardImage{
+  margin:8px 8px 0;
+}
+
+.cardImage img{
+  max-width: 100%;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+mat-progress-bar{
+  margin: 0;
+  height: 10px;
+}
+
+.imageLoading{
+  filter: opacity(0.4) brightness(1.2);
+}
+
+.cardInfo{
+  margin: 20px 18px 0;
+}
+
+.cardEmptyWrap{
+  width:100%;
+}
+
+.cardEmpty{
+  margin:0;
+  color:#80868b;
+  font-size:20px;
+  font-weight: 200;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.cardInfo .cardTitle{
+  font-weight: 100;
+  font-size:16px;
+  width:100%;
+  white-space: normal;
+  word-wrap: break-word;
+  margin-bottom: 10px;
+  width:90%;
+  white-space: normal;
+  word-wrap: break-word;
+  margin-top:25px;
+}
+
+.cardInfo .cardDescripion{
+  margin-top:0;
+  font-size:15px;
+  width:100%;
+  white-space: normal;
+  word-wrap: break-word;
+
+}
+
+.cardList{
+  padding-left: 17px;
+}
+
+.todoItem{
+  min-height: 32px;
+  display: flex;
+  align-items: top;
+  box-sizing: border-box;
+}
+
+.todoItem span{
+  margin-left:10px;
+  white-space: normal;
+  /*word-wrap: break-word;*/
+  overflow: hidden;
+  max-width: 80%;
+}
+
+
+
+.overlined{
+  color:#7a8085;
+  text-decoration: line-through;
+}
+
+.cardFooter{
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.noteItem:hover .cardFooter{
+  opacity: 1;
+  transition: 0.4s;
+}
+
+.noteItem .menuActive{
+  opacity: 1;
+}

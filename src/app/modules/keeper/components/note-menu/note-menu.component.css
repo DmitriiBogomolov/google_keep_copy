@@ -1,0 +1,143 @@
+
+.noteMenuWrap{
+  display:flex;
+  margin:0;
+}
+
+.noteMenuWrap mat-icon{
+  font-size: 17px;
+  color:#2a2a2a;
+}
+
+.noteMenuWrap button{
+  box-shadow:none;
+  background: none;
+}
+
+.noteMenuWrap button:active{
+  box-shadow:none;
+}
+
+.matMenuTitle{
+  font-size:15px;
+  font-weight: 500;
+  font-family: Roboto arial sans-serif;
+  margin:6px 0 14px 20px;
+}
+
+.matMenuBody{
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.dateField{
+  margin-top:10px;
+}
+
+.timeMenuWrap{
+  padding:7px 17px;
+}
+
+.minimalMatOption{
+  font-size:13px;
+  color:#a4a4a4;
+  height: 34px;
+}
+
+.minimalMatOption span:nth-child(2){
+  float:right;
+}
+
+.labelMenuWrap{
+  min-width:218px;
+}
+
+.labelMenuItem{
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.labelMenuBody{
+  padding-top:10px;
+}
+
+.matMenuBody mat-form-field{
+  width:100%;
+}
+
+.matMenuFooter .closeBtn{
+  font-size:13px;
+  font-weight: 500;
+  color:#212121;
+  margin-left:auto;
+  width:105px;
+  height: 35px!important;
+  cursor: pointer;
+  line-height: 35px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.matMenuFooter .closeBtn:hover{
+  background-color: #fafafa;
+}
+
+.matMenuFooter .closeBtn:active{
+  background-color: #ececed;
+}
+
+.fileInput{
+  display:none;
+}
+
+.colorsWrap{
+  margin:8px;
+  width:120px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.colorBtn{
+  box-sizing: border-box;
+  cursor: pointer;
+  width:25.5px;
+  height:25.5px;
+  margin:2px;
+  border-radius: 50%;
+}
+
+.colorBtn:first-child{
+  border:2px solid #ebebeb;
+}
+
+.colorBtn mat-icon{
+  font-size:22px;
+  display:none;
+}
+
+.activeColor{
+  border:2px solid #202020!important;
+}
+
+.activeColor mat-icon{
+  display:block;
+}
+
+.myMenuItem{
+  width:150px;
+  max-height: 30px!important;
+  line-height: 100%;
+}
+
+.myMenuItemRiple:focus{
+  background:transparent;
+}
+
+.myMenuItemRiple:hover{
+  background: #f5f5f5;
+}
+
+.matMenuFooter .closeBtn{
+  margin-right: 10px;
+}

@@ -1,0 +1,131 @@
+
+mat-progress-bar{
+  margin: 0;
+  height: 10px;
+}
+
+
+.editBodyWrapper{
+  position: relative;
+}
+
+
+.image-preview{
+  position: relative;
+  width:100%;
+  margin-bottom: 10px;
+
+}
+
+.noteImage{
+  max-width: 100%;
+  margin-bottom:15px;
+
+}
+
+.imageLoading{
+  filter: opacity(0.4) brightness(1.2);
+}
+
+
+.deleteImgBtn{
+  position: absolute;
+  bottom:30px;
+  right: 0;
+  width:30px;
+  height:30px;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.deleteIco{
+  font-size: 20px;
+  color: rgba(255,255,255,0.8);
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.image-preview:hover .deleteImgBtn, .image-preview:hover .deleteIco{
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.deleteImgBtn:hover{
+  background: rgba(0,0,0,0.8);
+}
+.deleteImgBtn:hover .deleteIco{
+  color: rgba(255,255,255,1);
+}
+
+.newNote{
+  box-sizing: border-box;
+  margin: 30px auto;
+  padding: 15px;
+  width:600px;
+  border: 1px solid #dedfe3;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.13);
+}
+
+input, textarea{
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.pinIco:hover{
+  color:#000;
+}
+
+.header{
+  display:flex;
+}
+
+.noticeBtn{
+  background: rgba(255,255,255,0.5);
+  color:#707070;
+  position:absolute;
+  right: 0;
+  top: -10px;
+  box-shadow: none;
+  transition: 0.2s;
+}
+
+.noticeBtn:hover{
+  color:#1a1a1a;
+  transition: 0.2s;
+}
+
+.header .title{
+  width:90%;
+  font-family: 'Google Sans',Roboto,Arial,sans-serif;
+  font-size:16px;
+  color:#202124;
+  font-weight: 500;
+  margin-bottom:18px;
+}
+
+.body .description{
+  width:100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size:14px;
+  color:#202124;
+  margin-bottom:0px;
+}
+
+.body .description{
+  margin-bottom:20px;
+}
+
+/* Default placeholder override */
+.title::-webkit-input-placeholder {color:#7a8085; font-weight: 400;}
+.title::-moz-placeholder          {color:#80868b; font-weight: 400;}/* Firefox 19+ */
+.title:-moz-placeholder           {color:#80868b; font-weight: 400;}/* Firefox 18- */
+.title:-ms-input-placeholder      {color:#80868b; font-weight: 400;}
+
+.description::-webkit-input-placeholder {color:#858b90;}
+.description::-moz-placeholder          {color:#858b90;}/* Firefox 19+ */
+.description:-moz-placeholder           {color:#858b90;}/* Firefox 18- */
+.description:-ms-input-placeholder      {color:#858b90;}

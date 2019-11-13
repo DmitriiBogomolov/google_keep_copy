@@ -1,0 +1,126 @@
+.labelEditWrap{
+  padding:24px;
+}
+
+
+.labelMenuTitle{
+  font-size:17px;
+  font-weight: 600;
+  /*font-family: Roboto arial sans-serif;*/
+  font-family: 'Montserrat', sans-serif;
+
+
+}
+
+
+.labelElement{
+  display:flex;
+  margin-bottom: 10px;
+}
+
+.labelElement mat-icon{
+  cursor: pointer;
+  color:#7a8085;
+  font-size:16px;
+}
+
+.labelElement mat-icon:hover{
+  color:#202124;
+}
+
+.labelElement input{
+  font-family: 'Roboto' arial sans-serif;
+  color:#3c4043;
+  font-size:16px;
+  font-weight: 400;
+
+  width:180px;
+  border:none;
+  background:none;
+  outline: none;
+  margin-left:10px;
+}
+
+.labelElement input:focus{
+  border-bottom: 1px solid #e0e0e0;
+
+}
+
+.deleteBtn,.clearBtn{
+  margin-top:6px;
+  margin-left: 5px;
+}
+
+.doneBtn, .editBtn{
+  margin-top:6px;
+  margin-left:10px;
+}
+
+.deleteBtn:after{
+  content:'label';
+  color:#7a8085;
+}
+
+.deleteBtn:hover::after{
+  content:'delete';
+  color:#202124;
+}
+
+
+
+.editBtn{
+
+
+}
+
+
+
+
+.editActive:after{
+
+}
+
+.iconBody{
+  margin:0;
+  display:none;
+}
+
+.editBtn:after{
+  /*content:'edit';*/
+
+}
+
+.editActive{
+  /*color:red;*/
+  display:block;
+}
+
+.divider{
+  margin:20px -20px 0;
+}
+
+
+.elemInput::-webkit-input-placeholder {color:#e0e0e0; font-weight: 400;}
+.elemInput::-moz-placeholder          {color:#e0e0e0; font-weight: 400;}/* Firefox 19+ */
+.elemInput:-moz-placeholder           {color:#e0e0e0; font-weight: 400;}/* Firefox 18- */
+.elemInput:-ms-input-placeholder      {color:#e0e0e0; font-weight: 400;}
+
+
+.closeBtn{
+  font-size:13px;
+  font-weight: 500;
+  color:#212121;
+  margin-left:auto;
+  width:105px;
+  height: 35px!important;
+  cursor: pointer;
+
+  line-height: 35px;
+  text-align: center;
+  border-radius: 3px;
+  margin-top:15px;
+}
+
+.closeBtn:hover{
+  background-color: #fafafa;
+}

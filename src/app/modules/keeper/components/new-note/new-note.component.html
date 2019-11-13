@@ -1,0 +1,20 @@
+
+<div class="newNote" [ngStyle]="{background:newNote.color}" [class.opened]="openTrigger">
+
+  <!-- Closed newNote element cap  !-->
+  <div class="newNoteCap" *ngIf="!openTrigger">
+    <input autofocus type="text" class="description" placeholder="Заметка...">
+  </div>
+
+  <div class="newNoteWrapper" *ngIf="openTrigger">
+
+    <app-note-edit-body [note]=newNote [fileProgress]=fileProgress></app-note-edit-body>
+    <div class="footer">
+      <app-note-menu [note]='newNote' [newNote]='true' (noteDelete)="noteDeleted($event)"
+                     (fileProgress)="setFileProgress($event)" (noteArhive)="noteArhived($event)"></app-note-menu>
+      <a class="closeBtn">Закрыть</a>
+    </div>
+
+  </div>
+
+</div>

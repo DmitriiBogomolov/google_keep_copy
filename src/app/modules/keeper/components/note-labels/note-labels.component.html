@@ -1,0 +1,27 @@
+<div class="cheapsWrap">
+    <mat-chip-list #chipList>
+
+      <div class="cheapWrap">
+        <mat-chip class="customCheap" *ngIf="note.date" [selectable]="true"
+                 [removable]="true" (removed)="removeAlarm()">
+            {{note.date | date:'dd MMM, HH:mm'}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+      </div>
+
+      <div class="cheapWrap" *ngFor="let label of note.labels; let i = index;">
+        <mat-chip class="customCheap" *ngIf="needToShowLabel(i)" [selectable]="true"
+                 [removable]="true" (removed)="removeLabel(i)">
+            {{label}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+      </div>
+
+      <div class="cheapWrap">
+        <mat-chip class="customCheap" *ngIf="getMoreTrigger()" [selectable]="true">
+            +{{getMoreNumber()}}
+        </mat-chip>
+      </div>
+
+    </mat-chip-list>
+</div>

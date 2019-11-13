@@ -1,0 +1,17 @@
+
+<app-new-note [defaultAlarm]="getNewNoteDate()"></app-new-note>
+
+<div class="noNotes" *ngIf="!getPastAlerts().length && !getComingAlerts().length">
+  <mat-icon class="noNotesIco">access_time</mat-icon>
+  <span class="noNotesText">Нет оповещений</span>
+</div>
+
+<h3 class="gridHeader" *ngIf="getPastAlerts().length">Прошедшие</h3>
+<div class="noticedGrid" *ngIf="getPastAlerts().length">
+  <app-grid-layout [dragEnabled]='dragEnabled' [notes]='getPastAlerts()'></app-grid-layout>
+</div>
+
+<h3 class="gridHeader" *ngIf="getComingAlerts().length">Предстоящие</h3>
+<div class="unnoticedGrid">
+  <app-grid-layout [dragEnabled]='false' [notes]='getComingAlerts()'></app-grid-layout>
+</div>

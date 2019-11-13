@@ -1,0 +1,15 @@
+<div class="dialogueWrap">
+
+
+
+  <div mat-dialog-content>
+    <p>{{data}}</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Нет</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Да</button>
+  </div>
+
+
+
+</div>

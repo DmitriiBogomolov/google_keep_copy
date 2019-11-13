@@ -1,0 +1,28 @@
+
+<div class="labelEditWrap">
+
+  <h2 class="labelMenuTitle" mat-dialog-title>Изменение ярлыков</h2>
+  <div mat-dialog-content>
+
+    <div class="labelElement">
+      <mat-icon class="material-icons" class="clearBtn" (click)="newLabel.value = ''" class="clearBtn">clear</mat-icon>
+      <input #newLabel class=".elemInput" placeholder="Создать ярлык" type="text" (keydown.enter)="addNewLabel(newLabel, 'true')">
+      <mat-icon class="material-icons" *ngIf="newLabel.value" class="doneBtn" (click)="addNewLabel(newLabel)">done</mat-icon>
+    </div>
+
+    <div *ngFor="let label of data; let i = index;" class="labelElement">
+      <mat-icon class="material-icons deleteBtn" (click)="deleteConfirmDialogue(label)" class="deleteBtn"></mat-icon>
+      <input #labelInput class=".elemInput" placeholder="Введите название" type="text" [value]="data[i]"
+                         (focus)="focusInput(editBtnBody)"
+                         (blur)="saveInput(labelInput, i, editBtnBody, label)"
+                         (keydown.enter)="saveInput(labelInput, i, editBtnBody)">
+      <mat-icon class="material-icons editBtn"><p class="iconBody" #editBtnBody>done</p></mat-icon>
+    </div>
+
+    <mat-divider class="divider"></mat-divider>
+
+    <div class="closeBtn" (click)="onCloseClick()">Готово</div>
+
+  </div>
+
+</div>

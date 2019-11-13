@@ -1,0 +1,10 @@
+
+
+
+<div class="grid" #gridLayout>
+  <div class="item" *ngFor="let note of notes; let i = index;" data-id='{{i}}' (mousedown)='mouseDown($event)' (mouseup)='mouseUp($event)'>
+    <div class="item-content">
+      <app-note (staticClick)="staticClick($event)" (onChanged)="onChanged($event)" [note]=note [attr.noteIndex]="i"></app-note>
+    </div>
+  </div>
+</div>

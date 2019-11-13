@@ -1,0 +1,206 @@
+
+<input type="file" class="fileInput" (change)="onFileUpload($event)" accept=".png, .jpg, .jpeg" #fileInput>
+
+<div class="noteMenuWrap">
+  <button
+    type="button"
+    mat-raised-button
+    matTooltip="Сохранить напоминание"
+    mat-icon-button
+    disableRipple=true
+    [matMenuTriggerFor]="alarmMenu"
+    #alarmMenuTrigger="matMenuTrigger"
+    (menuClosed)="setMenuStatus(false)"
+    (menuOpened)="setMenuStatus(true)">
+    <mat-icon class="material-icons-outlined">add_alert_outlined</mat-icon>
+  </button>
+
+  <mat-menu #alarmMenu="matMenu" overlapTrigger="false">
+    <div (click)="hideAutoComplete($event)" class="matMenuWrap" click-stop-propagation>
+
+      <div class="matMenuHeader">
+        <h3 class="matMenuTitle">Выбрать дату и время</h3>
+        <mat-divider></mat-divider>
+      </div>
+
+      <div class="matMenuBody">
+        <mat-form-field class="dateField">
+          <input matInput [matDatepicker]="picker" placeholder="Дата" [(ngModel)]="note.date" [min]="minDate" [max]="maxDate" (ngModelChange)="updateTime(note.time)">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="timeField">
+          <input type="time" matInput placeholder="Время" [matAutocomplete]="auto" [(ngModel)]="note.time" (ngModelChange)="updateTime($event)">
+          <mat-autocomplete #auto="matAutocomplete" class="timeMenu">
+              <mat-option [value]="'08:00'" class='minimalMatOption'>
+                <span>Утро</span>
+                <span>08:00</span>
+              </mat-option>
+              <mat-option [value]="'13:00'" class='minimalMatOption'>
+                <span>День</span>
+                <span>13:00</span>
+              </mat-option>
+              <mat-option [value]="'18:00'" class='minimalMatOption'>
+                <span>Вечер</span>
+                <span>18:00</span>
+              </mat-option>
+              <mat-option [value]="'21:00'" class='minimalMatOption'>
+                <span>Ночь</span>
+                <span>21:00</span>
+              </mat-option>
+              <mat-option [value]="'00:00'" class='minimalMatOption'>
+                <span>Другое</span>
+                <span>00:00</span>
+              </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+      </div>
+
+      <div class="matMenuFooter">
+        <div (click)="closeMyMenu()" class="closeBtn">
+            <a>Закрыть</a>
+        </div>
+      </div>
+
+    </div>
+  </mat-menu>
+
+  <button
+    type="button"
+    mat-raised-button
+    matTooltip="Добавить ярлык"
+    mat-icon-button
+    disableRipple=true
+    [matMenuTriggerFor]="labelMenu"
+    #labelMenuTrigger="matMenuTrigger"
+    (menuClosed)="setMenuStatus(false)"
+    (menuOpened)="setMenuStatus(true)">
+    <mat-icon>label_outlined</mat-icon>
+  </button>
+
+  <mat-menu #labelMenu="matMenu">
+    <div class="matMenuWrap labelMenuWrap" click-stop-propagation>
+
+      <div class="matMenuHeader">
+        <h3 class="matMenuTitle">Добавить ярлык</h3>
+        <mat-divider></mat-divider>
+      </div>
+
+      <div class="labelMenuBody">
+        <div mat-menu-item *ngFor="let item of labelList; let i = index;" class="labelMenuItem myMenuItemRiple" (click)='changeCheck(i, $event)'>
+            <mat-checkbox #mycheck [checked]='labelChecked(i)' disableRipple='true' (click)='$event.stopPropagation()' (change)='changeCheck(i)'>{{item}}</mat-checkbox>
+        </div>
+      </div>
+
+      <div class="matMenuFooter">
+        <div (click)="closeMyMenu()" class="closeBtn">
+            <a>Закрыть</a>
+        </div>
+      </div>
+
+    </div>
+  </mat-menu>
+
+
+
+
+
+
+
+
+
+
+
+  <button
+    type="button"
+    mat-raised-button
+    matTooltip="Установить цвет"
+    mat-icon-button
+    disableRipple=true,
+    [matMenuTriggerFor]="colorMenu"
+    (menuClosed)="setMenuStatus(false)"
+    (menuOpened)="setMenuStatus(true)">
+    <mat-icon class="material-icons-outlined">color_lens_outlined</mat-icon>
+  </button>
+
+
+  <mat-menu #colorMenu="matMenu">
+    <div class="matMenuWrap" click-stop-propagation>
+
+      <div class="colorsWrap">
+
+        <div class="colorBtn" *ngFor="let color of colors; let i = index;" [ngClass]="{activeColor:isSelect(i)}" [ngStyle]="{'background-color':color}" (click)="colorClick(i)"><mat-icon class="doneBtn">done</mat-icon></div>
+
+
+      </div>
+
+
+
+    </div>
+  </mat-menu>
+
+
+
+
+
+
+
+  <button
+    type="button"
+    mat-raised-button
+    matTooltip="Добавить картинку"
+    mat-icon-button
+    disableRipple=true
+    (click)="fileInput.click()">
+    <mat-icon class="material-icons-outlined">insert_photo_outlined</mat-icon>
+  </button>
+
+
+  <button
+    (click)="showTodoList()"
+    type="button"
+    mat-raised-button
+    matTooltip="Отображать список"
+    mat-icon-button
+    disableRipple=true
+    (menuClosed)="setMenuStatus(false)"
+    (menuOpened)="setMenuStatus(true)">
+    <mat-icon class="material-icons-outlined">list_alt_outlined</mat-icon>
+  </button>
+
+
+
+
+
+
+<button
+  *ngIf="showMoreMenuItem()"
+  type="button"
+  mat-raised-button
+  matTooltip="Еще"
+  mat-icon-button
+  disableRipple=true
+  [matMenuTriggerFor]="menu"
+  (menuClosed)="setMenuStatus(false)"
+  (menuOpened)="setMenuStatus(true)">
+  <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+</button>
+  <!--
+  <button mat-button [matMenuTriggerFor]="menu" disableRipple=true>Меню</button>
+  !-->
+  <mat-menu #menu="matMenu" class="noteMenuPanel">
+    <button mat-menu-item class="myMenuItem myMenuItemRiple" (click)="arhiveClick()">
+      <span *ngIf="note.arhieved">Деархивировать</span>
+      <span *ngIf="!note.arhieved">Архивировать</span>
+    </button>
+    <button mat-menu-item class="myMenuItem myMenuItemRiple" (click)="deleteConfirmDialogue()">
+      <span *ngIf="note.trash">Восстановить</span>
+      <span *ngIf="!note.trash">Удалить</span>
+    </button>
+  </mat-menu>
+
+
+
+</div>

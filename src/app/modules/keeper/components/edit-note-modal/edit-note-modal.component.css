@@ -1,0 +1,32 @@
+.editNoteWrap{
+  padding:20px;
+}
+
+.editNoteBodyWrap{
+  padding:5px;
+}
+
+.footer{
+  display:flex;
+}
+
+.footer .closeBtn{
+  font-size:13px;
+  font-weight: 500;
+  color:#212121;
+  margin-left:auto;
+  width:105px;
+  height: 35px;
+  cursor: pointer;
+  line-height: 35px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.footer .closeBtn:hover{
+  background-color: #fafafa;
+}
+
+.footer .closeBtn:active{
+  background-color: #ececed;
+}

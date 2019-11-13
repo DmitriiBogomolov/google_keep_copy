@@ -1,0 +1,77 @@
+
+<mat-toolbar class="mytoolbar">
+  <div class="logoWrap">
+
+    <button
+      class="sideNavBtn"
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      disableRipple=true
+      (click)="drawer.toggle()">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <span class="titleName">{{routeName}}</span>
+  </div>
+
+  <app-search-bar></app-search-bar>
+
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]=false [autosize]="true">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" fixedTopGap="70"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'push' : 'side'"
+               [opened]="!(isHandset$ | async)">
+
+    <mat-nav-list disableRipple=true>
+
+      <a mat-list-item routerLink="/notes" routerLinkActive="is-active">
+        <mat-icon class="material-icons-outlined">emoji_objects</mat-icon>
+        <span>Заметки</span>
+      </a>
+
+      <a mat-list-item routerLink="/alerts" routerLinkActive="is-active">
+        <mat-icon>notifications_none</mat-icon>
+        <span>Оповещения</span>
+      </a>
+
+      <mat-divider></mat-divider>
+
+      <h3 class="sectionTitle">Ярлыки</h3>
+
+      <a *ngFor="let item of labels" mat-list-item [routerLink]="['label', item]" routerLinkActive="is-active">
+        <mat-icon>label_outline</mat-icon>
+        <span>{{item}}</span>
+      </a>
+
+      <a mat-list-item (click)="openDialog()">
+        <mat-icon class="material-icons-outlined">edit_outlined</mat-icon>
+        <span>Изменить ярлыки</span>
+      </a>
+
+      <mat-divider></mat-divider>
+
+      <a mat-list-item routerLink="/arhive" routerLinkActive="is-active">
+        <mat-icon class="material-icons-outlined">archive</mat-icon>
+        <span>Архив</span>
+      </a>
+
+      <a mat-list-item routerLink="/trash" routerLinkActive="is-active">
+        <mat-icon>delete_outline</mat-icon>
+        <span>Корзина</span>
+      </a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="menu-content">
+
+    <!-- Content -->
+
+    <router-outlet (onChanged)="changeUrl($event)"></router-outlet>
+
+    <div class="mat-sidenav-footer"></div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

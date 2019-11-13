@@ -1,0 +1,23 @@
+
+<div class="todoListWrap">
+  <div class="todoItemsWrap" #todoItemWrap>
+
+    <div mat-menu-item class="todoItem" disableRipple='true' *ngFor="let item of note.todoList; let i = index;" #todoItem>
+
+        <mat-checkbox class="todoCheckbox" disableRipple='true' (change)="checkItem(item)"
+                      [(checked)]="item.checked"></mat-checkbox>
+
+        <input type="text" [ngClass]="{overlined:item.checked}" [(ngModel)]="item.value" class="todoInput"
+                           (keydown.enter)="pressInput(todoItem, i)" (focus)="setClass(todoItem)"
+                           (blur)="removeClass(todoItem)">
+
+        <mat-icon class="material-icons clearBtn" (click)='removeItem(i)'>clear</mat-icon>
+        
+    </div>
+  </div>
+
+  <div class="todoFooter" disableRipple="true" #todoFooter>
+    <mat-icon class="material-icons addBtn">add</mat-icon>
+    <input #newTodoInput type="text" placeholder="Введите название" (input)="todoPush(newTodoInput)" (focus)="setClass(todoFooter)" (blur)="removeClass(todoFooter)" class="todoInput">
+  </div>
+</div>

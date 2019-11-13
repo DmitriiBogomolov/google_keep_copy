@@ -1,0 +1,13 @@
+{
+  "id":"id",
+  "title":"",
+  "description":"",
+  "labels":[],
+  "selectedColor":0,
+  "pin":false,
+  "color":"#fefefe",
+  "todoList":[],
+  "showTodo":false,
+  "arhieved":false,
+  "trash":false
+}
