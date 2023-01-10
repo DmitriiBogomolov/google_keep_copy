@@ -1,4 +1,6 @@
-# Keeper
+# Google-keep-copy
+
+Копия интерфейса популярного сервиса от Google.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
