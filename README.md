@@ -2,6 +2,11 @@
 
 Копия интерфейса популярного сервиса от Google.
 
+![1](https://github.com/DmitriiBogomolov/google_keep_copy/blob/master/refs/1.png)
+![2](https://github.com/DmitriiBogomolov/google_keep_copy/blob/master/refs/2.png)
+![3](https://github.com/DmitriiBogomolov/google_keep_copy/blob/master/refs/3.png)
+![4](https://github.com/DmitriiBogomolov/google_keep_copy/blob/master/refs/4.png)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
 ## Development server
